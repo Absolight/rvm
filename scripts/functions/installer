@@ -616,8 +616,7 @@ correct_binary_permissions()
 get_file_group()
 {
   case "$(uname)" in
-    "Darwin") stat -f "%Sg" "$1" ;;
-    "OpenBSD" | "FreeBSD") stat -f "%Sg" "$1" ;;
+    Darwin | *BSD) stat -f "%Sg" "$1" ;;
     *)        stat -c "%G"  "$1" ;;
   esac
 }
